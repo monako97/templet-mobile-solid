@@ -1,9 +1,9 @@
 import { For } from 'solid-js';
 import routes, { RouteConfig } from '@app/routes';
 import { Outlet, useNavigate } from '@moneko/solid';
+import fastClick from 'fastclick';
 import styles from './index.less';
 import '@/global.less';
-import fastClick from 'fastclick';
 
 fastClick.attach(document.body);
 
