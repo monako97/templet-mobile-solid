@@ -1,0 +1,19 @@
+{
+  "name": "templet-mobile-solid",
+  "version": "0.0.1",
+  "description": "solid js mobile",
+  "main": "lib/index.js",
+  "scripts": {},
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "fastclick": "1.0.6"
+  },
+  "files": [
+    "config",
+    "mock",
+    "src",
+    "typings",
+    "tsconfig.json"
+  ]
+}
