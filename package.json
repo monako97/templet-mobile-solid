@@ -1,6 +1,6 @@
 {
   "name": "templet-mobile-solid",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "solid js mobile",
   "main": "lib/index.js",
   "scripts": {},
