@@ -15,7 +15,7 @@ const router: RouteConfig[] = [
             children: [
               {
                 path: '/',
-                meta: {
+                metadata: {
                   title: '用户详情',
                 },
               },

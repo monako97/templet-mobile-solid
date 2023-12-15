@@ -1,6 +1,6 @@
 import { For } from 'solid-js';
 import routes, { RouteConfig } from '@app/routes';
-import { Outlet, useNavigate } from '@moneko/solid';
+import { type RouteProps, useNavigate } from '@moneko/solid';
 import fastClick from 'fastclick';
 import styles from './index.less';
 import '@/global.less';
@@ -9,14 +9,14 @@ fastClick.attach(document.body);
 
 type AllRoute = {
   path: string;
-  meta?: RouteConfig['meta'];
+  metadata?: RouteConfig['metadata'];
 };
 
 function transformRoutes(inputRoutes: RouteConfig[], parentPath?: string, result: AllRoute[] = []) {
   for (const route of inputRoutes) {
-    const { path, meta, children } = route;
+    const { path, metadata, children } = route;
     const fullPath = [parentPath, path].join('/').split('/').filter(Boolean).join('/');
-    const transformedRoute: AllRoute = { path: fullPath, meta };
+    const transformedRoute: AllRoute = { path: fullPath, metadata };
 
     if (children) {
       transformRoutes(children, fullPath, result);
@@ -28,7 +28,7 @@ function transformRoutes(inputRoutes: RouteConfig[], parentPath?: string, result
   return result;
 }
 
-function App() {
+function App(p: RouteProps<styles>) {
   const all = transformRoutes(routes);
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ function App() {
                     navigate(item.path);
                   }}
                 >
-                  {[item.path || '/', item.meta?.title].filter(Boolean)}
+                  {[item.path || '/', item.metadata?.title].filter(Boolean)}
                 </button>
               </li>
             );
@@ -52,7 +52,7 @@ function App() {
         </For>
       </nav>
       <main class={styles.main}>
-        <Outlet />
+        {p.children}
       </main>
     </>
   );
