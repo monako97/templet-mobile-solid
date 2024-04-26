@@ -2,7 +2,7 @@ import { For } from 'solid-js';
 import routes, { RouteConfig } from '@app/routes';
 import { type RouteProps, useNavigate } from '@moneko/solid';
 import fastClick from 'fastclick';
-import styles from './index.less';
+import * as styles from './index.less';
 import '@/global.less';
 
 fastClick.attach(document.body);
